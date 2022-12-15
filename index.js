@@ -6,6 +6,7 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBit
 const enabledChannels = [
   '1053007072574328873',
   '1052613065897693184',
+  '937039392164429915',
 ];
 
 // make sure these are actually emojis
@@ -51,7 +52,7 @@ client.on('messageCreate', message => {
 
 /* lazyyy */
 function isMusicLink(string) {
-  if (string.includes('spotify.com') || string.includes('youtube.com')) {
+  if (string.includes('spotify.com') || string.includes('youtube.com') || string.includes('youtu.be')) {
     return true;
   }
   return false;
