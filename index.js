@@ -37,7 +37,7 @@ client.on('messageCreate', message => {
     return;
   }
 
-  if (isMusicLink(message.content)) {
+  if (containsUrl(message.content)) {
     musicReactionEmojis.forEach(emoji => {
       message.react(emoji).catch((error) => {
         //if (error == DiscordjsErrorCodes.EmojiType ) {
@@ -53,9 +53,9 @@ client.on('messageCreate', message => {
 
 
 /* lazyyy */
-function isMusicLink(string) {
-  if (string.includes('spotify.com') || string.includes('youtube.com') || string.includes('youtu.be')) {
-    return true;
+function containsUrl(string) {
+  if ( new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(string) ) {
+        return true;
   }
   return false;
 }
